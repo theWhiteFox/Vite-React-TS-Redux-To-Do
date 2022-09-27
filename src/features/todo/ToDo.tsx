@@ -44,6 +44,7 @@ export const ToDo: FC = () => {
           id="outlined-basic"
           label="To Do"
           variant="outlined"
+          value={task}
           onChange={handleChange}
           InputProps={{ endAdornment: <AddToDoButton /> }}
         />
