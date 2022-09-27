@@ -7,13 +7,17 @@ import {
   Typography,
 } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
-import { Counter } from '../features/counter/Counter';
+import { ToDo } from '../features/todo/ToDo';
 
 function Home() {
   const [count, setCount] = useState(0);
 
   // define theme
   const theme = createTheme({
+
+    typography: {
+      fontSize: 14,
+    },
     palette: {
       primary: {
         light: "#63b8ff",
@@ -35,34 +39,37 @@ function Home() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box
-        height="100vh"
+        height="60vh"
         display="flex"
         justifyContent="center"
         alignItems="center"
         flexDirection="column"
+        width='100%'
       >
         <Paper
           elevation={3}
           sx={{ padding: "1rem", backgroundColor: "secondary.light" }}
         >
-          <Typography color="primary.dark" variant="h1">
-            home page Starter App
-          </Typography>
           <div>
             <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
               <img src="/vite.svg" className="logo" alt="Vite logo" />
             </a>
           </div>
-          <h1>Vite + React + Redux</h1>
+          <Typography color="primary.dark" variant="h2">
+            To Do App
+          </Typography>
+          <Typography color="secondary.dark" variant="h4">
+            React Redux TS
+          </Typography>
           <div className="card">
-            <Counter />
+            <ToDo />
             <p>
               Edit <code>src/App.tsx</code> and save to test HMR
             </p>
           </div>
         </Paper>
       </Box>
-    </ThemeProvider>
+    </ThemeProvider >
   )
 }
 export default Home;

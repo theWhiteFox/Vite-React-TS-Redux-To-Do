@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
-import { Counter } from '../features/counter/Counter';
+import { ToDo } from '../features/todo/ToDo';
 
 function About() {
   const [count, setCount] = useState(0);
@@ -54,7 +54,7 @@ function About() {
           </div>
           <h1>About</h1>
           <div className="card">
-            <Counter />
+            <ToDo />
             <p>
               Edit <code>src/App.tsx</code> and save to test HMR
             </p>
