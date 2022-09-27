@@ -63,9 +63,6 @@ function Home() {
           </Typography>
           <div className="card">
             <ToDo />
-            <p>
-              Edit <code>src/App.tsx</code> and save to test HMR
-            </p>
           </div>
         </Paper>
       </Box>

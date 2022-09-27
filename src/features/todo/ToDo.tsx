@@ -5,6 +5,7 @@ import { addTodo, removeTodo } from './todoSlice'
 import { Box, Typography, Container, Button, TextField, IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { ITask } from '../../interfaces';
+import ToDoTask from '../../components/ToDoTask';
 
 export const ToDo: FC = () => {
   // const todos = useSelector((state: RootState) => state.todos)
@@ -20,7 +21,7 @@ export const ToDo: FC = () => {
   const addTask = (): void => {
     const newTask = { taskName: task };
     setTodoList([...todoList, newTask])
-    console.log(todoList)
+    setTask("")
   }
 
   const AddToDoButton = () => (
@@ -47,6 +48,9 @@ export const ToDo: FC = () => {
           InputProps={{ endAdornment: <AddToDoButton /> }}
         />
       </Box>
+      {todoList.map((task: ITask, key: number) => {
+        return <ToDoTask key={key} task={task} />
+      })}
     </Container>
   )
 }
