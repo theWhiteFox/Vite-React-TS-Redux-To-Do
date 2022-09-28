@@ -1,18 +1,18 @@
 import { ChangeEvent, FC, useState } from 'react'
-import type { RootState } from '../../store'
-import { useSelector, useDispatch } from 'react-redux'
-import { addTodo, removeTodo } from './todoSlice'
 import { Box, Container, TextField, IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { ITask } from '../../interfaces';
 import ToDoTask from '../../components/ToDoTask';
 
+import type { AppDispatch, RootState } from '../../store'
+import { useSelector, useDispatch } from 'react-redux'
+import { addTodo, removeTodo } from './todoSlice'
+
 export const ToDo: FC = () => {
-  // const todos = useSelector((state: RootState) => state.todos)
-  // const dispatch = useDispatch()
+  const todosList = useSelector((state: RootState) => state.todos)
+  const dispatch = useDispatch<AppDispatch>()
 
   const [task, setTask] = useState<string>('')
-  const [todoList, setTodoList] = useState<ITask[]>([])
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setTask(event.target.value)
@@ -20,7 +20,7 @@ export const ToDo: FC = () => {
 
   const addTask = (): void => {
     const newTask = { taskName: task };
-    setTodoList([...todoList, newTask])
+    dispatch(addTodo(newTask))
     setTask("")
   }
 
@@ -35,7 +35,7 @@ export const ToDo: FC = () => {
       <Box
         component="form"
         sx={{
-          '& > :not(style)': { m: 1, width: '45ch' },
+          '& > :not(style)': { m: .1, width: '45ch' },
         }}
         noValidate
         autoComplete="off"
@@ -49,7 +49,7 @@ export const ToDo: FC = () => {
           InputProps={{ endAdornment: <AddToDoButton /> }}
         />
       </Box>
-      {todoList.map((task: ITask, key: number) => {
+      {todosList.map((task: ITask, key: number) => {
         return <ToDoTask key={key} task={task} />
       })}
     </Container>

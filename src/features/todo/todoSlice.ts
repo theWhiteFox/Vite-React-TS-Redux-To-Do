@@ -1,36 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { ITask } from '../../interfaces';
 
-interface Todo {
-  id: number;
-  done: boolean;
-  text: string;
-}
-
-interface TodoSliceState {
-  todos: Todo[]
-}
-
-const initialState: TodoSliceState = {
-  todos: []
-}
+const initialState = [] as ITask[];
 
 export const todoSlice = createSlice({
-  name: 'counter',
+  name: 'todos',
   initialState,
   reducers: {
-    addTodo: (state, action: PayloadAction<string>) => {
-      state.todos = [
-        ...state.todos,
-        {
-          id: state.todos.length,
-          text: action.payload,
-          done: false,
-        },
-      ]
+    addTodo: (state, action: PayloadAction<ITask>) => {
+      state.push(action.payload);
     },
-    removeTodo: (state, action: PayloadAction<number>) => {
-      state.todos = state.todos.filter(({ id }) => id !== action.payload)
+    removeTodo(state, action: PayloadAction<string>) {
+      const index = state.findIndex((todo) => todo.taskName === action.payload);
+      state.splice(index, 1);
     },
   },
 })
