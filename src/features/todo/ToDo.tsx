@@ -2,7 +2,7 @@ import { ChangeEvent, FC, useState } from 'react'
 import type { RootState } from '../../store'
 import { useSelector, useDispatch } from 'react-redux'
 import { addTodo, removeTodo } from './todoSlice'
-import { Box, Typography, Container, Button, TextField, IconButton } from '@mui/material';
+import { Box, Container, TextField, IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { ITask } from '../../interfaces';
 import ToDoTask from '../../components/ToDoTask';

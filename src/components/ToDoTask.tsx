@@ -1,4 +1,5 @@
 import { ITask } from "../interfaces"
+import { Button } from '@mui/material';
 
 interface Props {
     task: ITask
@@ -6,7 +7,12 @@ interface Props {
 
 const ToDoTask = ({ task }: Props) => {
     return (
-        <div>{task.taskName}</div>
+        <div className="task">
+            <div className="content">
+                {task.taskName}
+            </div>
+            <Button />
+        </div>
     )
 }
 
