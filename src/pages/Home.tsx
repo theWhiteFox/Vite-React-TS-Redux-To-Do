@@ -43,15 +43,17 @@ function Home() {
         sx={{ padding: "1rem", backgroundColor: "secondary.light" }}
       >
         <div>
-          <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-            <img src="/vite.svg" className="logo" alt="Vite logo" />
+          <a href="https://github.com/theWhiteFox/Vite-React-TS-Redux-To-Do" target="_blank" rel="noreferrer">
+            <img src="/icons8-octocat-500.svg" className="logo" alt="Vite logo" />
           </a>
         </div>
         <Typography color="primary.dark" variant="h2">
           To Do App
         </Typography>
         <Typography color="secondary.dark" variant="h4">
-          React Redux TS
+          <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
+            <img src="/vite.svg" className="" alt="Vite logo" />
+          </a> React Redux TS
         </Typography>
         <div className="card">
           <ToDo />
