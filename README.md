@@ -7,6 +7,6 @@ This setup includes:
 * [vitest](https://vitest.dev/), [jsdom](https://github.com/jsdom/jsdom),
 [@testing-library](https://testing-library.com/)
 * [react-router v6](https://reactrouter.com/en/main)
-* [https://redux.js.org/usage/usage-with-typescript](https://redux.js.org/usage/usage-with-typescript)
+* [Redux TS](https://redux.js.org/usage/usage-with-typescript)
 * [MUI](https://mui.com/)
 
