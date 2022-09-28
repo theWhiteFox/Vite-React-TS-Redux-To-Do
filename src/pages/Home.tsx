@@ -14,7 +14,6 @@ function Home() {
 
   // define theme
   const theme = createTheme({
-
     typography: {
       fontSize: 14,
     },
@@ -38,34 +37,27 @@ function Home() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box
-        height="60vh"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        flexDirection="column"
-        width='100%'
+
+      <Paper
+        elevation={3}
+        sx={{ padding: "1rem", backgroundColor: "secondary.light" }}
       >
-        <Paper
-          elevation={3}
-          sx={{ padding: "1rem", backgroundColor: "secondary.light" }}
-        >
-          <div>
-            <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-              <img src="/vite.svg" className="logo" alt="Vite logo" />
-            </a>
-          </div>
-          <Typography color="primary.dark" variant="h2">
-            To Do App
-          </Typography>
-          <Typography color="secondary.dark" variant="h4">
-            React Redux TS
-          </Typography>
-          <div className="card">
-            <ToDo />
-          </div>
-        </Paper>
-      </Box>
+        <div>
+          <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
+            <img src="/vite.svg" className="logo" alt="Vite logo" />
+          </a>
+        </div>
+        <Typography color="primary.dark" variant="h2">
+          To Do App
+        </Typography>
+        <Typography color="secondary.dark" variant="h4">
+          React Redux TS
+        </Typography>
+        <div className="card">
+          <ToDo />
+        </div>
+      </Paper>
+
     </ThemeProvider >
   )
 }

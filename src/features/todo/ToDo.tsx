@@ -24,6 +24,10 @@ export const ToDo: FC = () => {
     setTask("")
   }
 
+  const removeTask = (task: string): void => {
+    dispatch(removeTodo(task))
+  }
+
   const AddToDoButton = () => (
     <IconButton onClick={addTask}>
       <AddIcon />
@@ -31,27 +35,31 @@ export const ToDo: FC = () => {
   )
 
   return (
-    <Container>
-      <Box
-        component="form"
-        sx={{
-          '& > :not(style)': { m: .1, width: '45ch' },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <TextField
-          id="outlined-basic"
-          label="To Do"
-          variant="outlined"
-          value={task}
-          onChange={handleChange}
-          InputProps={{ endAdornment: <AddToDoButton /> }}
-        />
-      </Box>
-      {todosList.map((task: ITask, key: number) => {
-        return <ToDoTask key={key} task={task} />
-      })}
-    </Container>
+    <>
+      <Container>
+        <Box
+          component="form"
+          sx={{
+            '& > :not(style)': { m: .1, width: '45ch' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            id="outlined-basic"
+            label="To Do"
+            variant="outlined"
+            value={task}
+            onChange={handleChange}
+            InputProps={{ endAdornment: <AddToDoButton /> }}
+          />
+        </Box>
+      </Container>
+      <div className="todoList">
+        {todosList.map((task: ITask, key: number) => {
+          return <ToDoTask key={key} task={task} removeTask={removeTask} />
+        })}
+      </div>
+    </>
   )
 }
